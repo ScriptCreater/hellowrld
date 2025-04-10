@@ -1,7 +1,7 @@
 -- Main code: hello_world_script.lua
 
 local debug_info = debug.getinfo(1, "S")
-if not string.find(debug_info.source, "[string") then
+if not debug_info or not debug_info.source or not string.match(debug_info.source, "^[string") then
     return -- stops script if it's not loaded via loadstring
 end
 
