@@ -1,0 +1,9 @@
+-- Main code: hello_world_script.lua
+
+local debug_info = debug.getinfo(1, "S")
+if not string.find(debug_info.source, "[string") then
+    return -- stops script if it's not loaded via loadstring
+end
+
+-- If it gets here, it's being run correctly through loadstring!
+print("Hello World!")
